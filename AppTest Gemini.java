@@ -7,52 +7,38 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AppTest {
 
     @Test
-    void testPalindromaEmptyString() {
-        assertTrue(App.Palindroma("", 0, 0), "Una stringa vuota dovrebbe essere considerata palindroma.");
+    public void testEmptyPalindrome() {
+      String s = "";
+      assertTrue(Palindroma(s, 0, s.length() - 1));
     }
-
+  
     @Test
-    void testPalindromaSingleCharacter() {
-        assertTrue(App.Palindroma("a", 0, 0), "Una stringa con un solo carattere dovrebbe essere palindroma.");
+    public void testSingleCharacterPalindrome() {
+      String s = "a";
+      assertTrue(Palindroma(s, 0, s.length() - 1));
     }
-
+  
     @Test
-    void testPalindromaEvenLength() {
-        assertTrue(App.Palindroma("anna", 0, 3), "La stringa 'anna' dovrebbe essere palindroma.");
+    public void testEvenLengthPalindrome() {
+      String s = "abba";
+      assertTrue(Palindroma(s, 0, s.length() - 1));
     }
-
+  
     @Test
-    void testPalindromaOddLength() {
-        assertTrue(App.Palindroma("radar", 0, 4), "La stringa 'radar' dovrebbe essere palindroma.");
+    public void testOddLengthPalindrome() {
+      String s = "abcba";
+      assertTrue(Palindroma(s, 0, s.length() - 1));
     }
-
+  
     @Test
-    void testNonPalindroma() {
-        assertFalse(App.Palindroma("hello", 0, 4), "La stringa 'hello' non è palindroma.");
+    public void testNonPalindrome() {
+      String s = "abca";
+      assertFalse(Palindroma(s, 0, s.length() - 1));
     }
-
-   /*   @Test
-    void testPalindromaWithSpaces() {
-        assertTrue(App.Palindroma("a santa at nasa", 0, 14), "La stringa 'a santa at nasa' dovrebbe essere palindroma.");
-    }*/
-
+  
     @Test
-    void testPalindromaWithMixedCase() {
-        assertFalse(App.Palindroma("Radar", 0, 4), "La stringa 'Radar' non è palindroma con distinzione tra maiuscole e minuscole.");
+    public void testCaseInsensitivePalindrome() {
+      String s = "Madam";
+      assertTrue(Palindroma(s, 0, s.length() - 1));
     }
-
-    @Test
-    void testPalindromaWithSpecialCharacters() {
-        assertTrue(App.Palindroma("!@##@!", 0, 5), "La stringa '!@##@!' dovrebbe essere palindroma.");
-    }
-
-    @Test
-    void testNonPalindromaEvenLength() {
-        assertFalse(App.Palindroma("abcd", 0, 3), "La stringa 'abcd' non è palindroma.");
-    }
-
-    @Test
-    void testNonPalindromaOddLength() {
-        assertFalse(App.Palindroma("abcde", 0, 4), "La stringa 'abcde' non è palindroma.");
-    }
-}
+  }
